@@ -1,0 +1,77 @@
+/*--------------------------------------------------------------------*/
+/*	DOCUMENT READY FUNCTIONS
+/*--------------------------------------------------------------------*/
+
+// IF JS IS ENABLED, REMOVE 'no-js' AND ADD 'js' CLASS
+jQuery('html').removeClass('no-js').addClass('js');
+
+jQuery(document).ready(function($) {
+
+	jQuery('#windowTitleDialog').bind('show', function () { document.getElementById ("xlInput").value = document.title; });
+	
+	jQuery(document).tooltips();
+	
+	// FITVID
+	jQuery("body").fitVids();
+	
+	//AUTOHEIGHT TEXTAREA
+	jQuery('textarea.auto-height').flexText();
+	 
+	 //IMAGE ROLLOVER
+	 if (jQuery().rmimage_rollover) { jQuery(".post-thumb").rmimage_rollover(); 	}
+	  
+  	 //FORM VALIDATION
+	 if (jQuery().validate) { jQuery("#commentform").validate(); }
+	
+	// BACK TO TOP
+	jQuery().UItoTop({ 
+		text: '',
+		easingType: 'easeOutQuart'
+	});
+
+	// HEADER OVERLAY
+	var overlay = $('#overlay'),
+		overContainer = $('.overlay-container'),
+	    overTrigger = $('.header-controls a.trigger'),
+	    overicon = $('.header-controls .trigger');
+	
+	overTrigger.toggle(function(){
+	    overContainer.slideDown(parseInt(600));
+	    overicon.addClass('open');
+	    overicon.removeClass('closed');
+	    
+	}, function(){
+	    overContainer.slideUp(parseInt(600));
+	    overicon.addClass('closed');
+	    overicon.removeClass('open');
+	});
+	
+	// POST THUMB HOVER OVERLAY
+    $('.entry-content-media').imagesLoaded(function(){	
+		$('.post-thumb a').prepend('<span class="thumb-overlay"></span>');
+	});
+		
+});
+
+
+   
+
+/*--------------------------------------------------------------------*/
+/*	FIX POST META ON SCROLL
+/*--------------------------------------------------------------------*/
+/*
+(function ($) {
+var currentScrollTop = 0;
+var barMenuOriginalTopPos = $('.single-post div.entry-meta').offset().top + -40;
+console.log('original:' + barMenuOriginalTopPos);
+$(window).scroll(function() {
+    currentScrollTop = $(window).scrollTop();
+    console.log(currentScrollTop);
+    if(currentScrollTop >= barMenuOriginalTopPos && $('.single-post div.entry-meta').hasClass('fix-to-top') == false) {
+        $('.single-post div.entry-meta').addClass('fix-to-top');
+    }
+    else if(currentScrollTop < barMenuOriginalTopPos && $('.single-post div.entry-meta').hasClass('fix-to-top') ){
+        $('.single-post div.entry-meta').removeClass('fix-to-top');
+    }
+});
+})(jQuery);*/
