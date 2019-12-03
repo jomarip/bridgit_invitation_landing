@@ -187,9 +187,12 @@ body.custom_home {
     right: 0;
     width: 637px;
     height: 488px;
-    padding: 49px 57px 38px 57px;
+    padding: ;
 }
     .browser_frame iframe {
+        position:relative;
+        width: 576px;
+        height: 440px;
         opacity: 0;
         -webkit-transition: opacity .5s 1500ms;
         -moz-transition: opacity .5s 1500ms;
